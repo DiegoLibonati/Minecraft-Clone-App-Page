@@ -18,7 +18,9 @@ export const useKeyboard = () => {
   const handleKeyDown = useCallback((e) => {
     const action = actionByKey(e.code);
     if (action) {
-      setActions({ ...actions, [action]: true });
+      setActions((actionsPrev) => {
+        return { ...actionsPrev, [action]: true };
+      });
     }
   }, []);
 
@@ -26,7 +28,9 @@ export const useKeyboard = () => {
     const action = actionByKey(e.code);
 
     if (action) {
-      setActions({ ...actions, [action]: false });
+      setActions((actionsPrev) => {
+        return { ...actionsPrev, [action]: false };
+      });
     }
   }, []);
 
