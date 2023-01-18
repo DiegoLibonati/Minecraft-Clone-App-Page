@@ -1,15 +1,16 @@
 export const actionByKey = (key) => {
   const keyActionMap = {
-    KeyW: "moveForward",
-    KeyS: "moveBackward",
-    KeyA: "moveLeft",
-    KeyD: "moveRight",
-    Space: "jump",
-    Digit1: "dirt",
-    Digit2: "grass",
-    Digit3: "glass",
-    Digit4: "wood",
-    Digit5: "log",
+    KeyW: "moveForwardKey",
+    KeyS: "moveBackwardKey",
+    KeyA: "moveLeftKey",
+    KeyD: "moveRightKey",
+    Space: "jumpKey",
+    ShiftLeft: "runKey",
+    Digit1: "dirtKey",
+    Digit2: "grassKey",
+    Digit3: "glassKey",
+    Digit4: "woodKey",
+    Digit5: "logKey",
   };
 
   return keyActionMap[key];
