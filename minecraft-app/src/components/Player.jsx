@@ -8,7 +8,7 @@ import { useKeyboard } from "../hooks/useKeyboard";
 const JUMP = 3;
 const SPEED = 3;
 const RUN = 5;
-
+// (Math.floor(pos.current[2]) < 50 && Math.floor(pos.current[2]) > -50)
 export const Player = () => {
   const { actions } = useKeyboard();
   const {

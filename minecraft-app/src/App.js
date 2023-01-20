@@ -4,6 +4,7 @@ import { Sky } from "@react-three/drei";
 import { Ground } from "./components/Ground";
 import { Player } from "./components/Player";
 import { FirstPersonCamera } from "./components/FirstPersonCamera";
+import { Cubes } from "./components/Cubes";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <FirstPersonCamera></FirstPersonCamera>
         <Physics>
           <Player></Player>
+          <Cubes></Cubes>
           <Ground></Ground>
         </Physics>
       </Canvas>
