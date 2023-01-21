@@ -1,8 +1,10 @@
 import { useBox } from "@react-three/cannon";
+import { useState } from "react";
 import * as textures from "../assets/textures";
 import { useStore } from "../hooks/useStore";
 
 export const Cube = ({ id, position, texture }) => {
+  const [isHovered, setIsHovered] = useState(false);
   const [ref] = useBox(() => ({ type: "static", position }));
   const [addCube, removeCube] = useStore((state) => [
     state.addCube,
@@ -12,6 +14,14 @@ export const Cube = ({ id, position, texture }) => {
 
   return (
     <mesh
+      onPointerMove={(e) => {
+        e.stopPropagation();
+        setIsHovered(true);
+      }}
+      onPointerOut={(e) => {
+        e.stopPropagation();
+        setIsHovered(false);
+      }}
       ref={ref}
       onClick={(e) => {
         e.stopPropagation();
@@ -45,7 +55,10 @@ export const Cube = ({ id, position, texture }) => {
     >
       <boxBufferGeometry attach={"geometry"}></boxBufferGeometry>
       <meshStandardMaterial
+        color={isHovered ? "grey" : "white"}
         attach={"material"}
+        transparent={true}
+        opacity={texture === "glass" ? 0.6 : 1}
         map={activeTexture}
       ></meshStandardMaterial>
     </mesh>
