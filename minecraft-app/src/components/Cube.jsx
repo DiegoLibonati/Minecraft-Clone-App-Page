@@ -4,7 +4,10 @@ import { useStore } from "../hooks/useStore";
 
 export const Cube = ({ id, position, texture }) => {
   const [ref] = useBox(() => ({ type: "static", position }));
-  const [removeCube] = useStore((state) => [state.removeCube]);
+  const [addCube, removeCube] = useStore((state) => [
+    state.addCube,
+    state.removeCube,
+  ]);
   const activeTexture = textures[texture + "Texture"];
 
   return (
@@ -12,8 +15,31 @@ export const Cube = ({ id, position, texture }) => {
       ref={ref}
       onClick={(e) => {
         e.stopPropagation();
+        const clickedFace = Math.floor(e.faceIndex / 2);
+        const { x, y, z } = ref.current.position;
+
         if (e.nativeEvent.button === 2) {
           removeCube(id);
+        } else if (e.nativeEvent.button === 0) {
+          if (clickedFace === 0) {
+            addCube(x + 1, y, z);
+            return;
+          } else if (clickedFace === 1) {
+            addCube(x - 1, y, z);
+            return;
+          } else if (clickedFace === 2) {
+            addCube(x, y + 1, z);
+            return;
+          } else if (clickedFace === 3) {
+            addCube(x, y - 1, z);
+            return;
+          } else if (clickedFace === 4) {
+            addCube(x, y, z + 1);
+            return;
+          } else if (clickedFace === 5) {
+            addCube(x, y, z - 1);
+            return;
+          }
         }
       }}
     >
