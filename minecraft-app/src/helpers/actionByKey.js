@@ -6,11 +6,11 @@ export const actionByKey = (key) => {
     KeyD: "moveRightKey",
     Space: "jumpKey",
     ShiftLeft: "runKey",
-    Digit1: "dirtKey",
-    Digit2: "grassKey",
-    Digit3: "glassKey",
-    Digit4: "woodKey",
-    Digit5: "logKey",
+    Digit1: "texture1Key",
+    Digit2: "texture2Key",
+    Digit3: "texture3Key",
+    Digit4: "texture4Key",
+    Digit5: "texture5Key",
   };
 
   return keyActionMap[key];
