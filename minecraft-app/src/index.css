@@ -50,6 +50,33 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.bottom {
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .cursor {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.texture-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 20px;
+  transform: scale(3);
+}
+.texture-selector img {
+  border: 1px solid #fff;
+}
+
+.texture-selector img.active {
+  border: 2px solid red;
+}
+
+.menu {
+  top: 10px;
+  left: 10px;
 }
